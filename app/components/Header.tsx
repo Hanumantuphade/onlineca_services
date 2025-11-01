@@ -1,44 +1,63 @@
 'use client'
 import {useState} from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import {usePathname} from 'next/navigation'
 import {Menu, X, Phone} from 'lucide-react'
 
 export default function Header() {
 	const [isOpen, setIsOpen] = useState(false)
+	const pathname = usePathname()
 
 	return (
 		<header className='fixed top-0 left-0 w-full bg-white shadow-sm z-50 border-b border-gray-100'>
-			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center'>
+			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center'>
 				<Link
 					href='/'
-					className='text-xl font-bold text-teal-600 hover:text-teal-700 transition-colors'>
-					Online<span className='text-blue-700'>CAServices</span>
+					className='relative h-10 w-32 sm:h-12 sm:w-40 md:h-14 md:w-48 transition-opacity hover:opacity-80'>
+					<Image
+						src='/logo.jpg'
+						alt='Online CA Services'
+						fill
+						className='object-contain'
+						priority
+					/>
 				</Link>
 
 				<nav className='hidden md:flex space-x-8 text-base text-gray-700 font-medium'>
 					<Link
 						href='/about'
-						className='hover:text-teal-600 transition-colors duration-300 ease-linear'>
+						className={`hover:text-teal-600 transition-colors duration-300 ease-linear ${
+							pathname === '/about' ? 'text-teal-600 font-semibold' : ''
+						}`}>
 						About Us
 					</Link>
 					<Link
 						href='/services'
-						className='hover:text-teal-600 transition-colors duration-300 ease-linear'>
+						className={`hover:text-teal-600 transition-colors duration-300 ease-linear ${
+							pathname === '/services' ? 'text-teal-600 font-semibold' : ''
+						}`}>
 						Services Offered
 					</Link>
 					<Link
 						href='/blogs'
-						className='hover:text-teal-600 transition-colors duration-300 ease-l'>
+						className={`hover:text-teal-600 transition-colors duration-300 ease-l ${
+							pathname === '/blogs' ? 'text-teal-600 font-semibold' : ''
+						}`}>
 						Blogs
 					</Link>
 					<Link
 						href='/faq'
-						className='hover:text-teal-600 transition-colors duration-300 ease-l'>
+						className={`hover:text-teal-600 transition-colors duration-300 ease-l ${
+							pathname === '/faq' ? 'text-teal-600 font-semibold' : ''
+						}`}>
 						FAQs
 					</Link>
 					<Link
 						href='/contact'
-						className='hover:text-teal-600 transition-colors duration-300 ease-l'>
+						className={`hover:text-teal-600 transition-colors duration-300 ease-l ${
+							pathname === '/contact' ? 'text-teal-600 font-semibold' : ''
+						}`}>
 						Contact
 					</Link>
 				</nav>
@@ -64,31 +83,41 @@ export default function Header() {
 						<Link
 							href='/about'
 							onClick={() => setIsOpen(false)}
-							className='hover:text-teal-600 transition-colors'>
+							className={`hover:text-teal-600 transition-colors ${
+								pathname === '/about' ? 'text-teal-600 font-semibold' : ''
+							}`}>
 							About Us
 						</Link>
 						<Link
 							href='/services'
 							onClick={() => setIsOpen(false)}
-							className='hover:text-teal-600 transition-colors '>
+							className={`hover:text-teal-600 transition-colors ${
+								pathname === '/services' ? 'text-teal-600 font-semibold' : ''
+							}`}>
 							Services Offered
 						</Link>
 						<Link
 							href='/blogs'
 							onClick={() => setIsOpen(false)}
-							className='hover:text-teal-600 transition-colors '>
+							className={`hover:text-teal-600 transition-colors ${
+								pathname === '/blogs' ? 'text-teal-600 font-semibold' : ''
+							}`}>
 							Blogs
 						</Link>
 						<Link
 							href='/faq'
 							onClick={() => setIsOpen(false)}
-							className='hover:text-teal-600 transition-colors '>
+							className={`hover:text-teal-600 transition-colors ${
+								pathname === '/faq' ? 'text-teal-600 font-semibold' : ''
+							}`}>
 							FAQs
 						</Link>
 						<Link
 							href='/contact'
 							onClick={() => setIsOpen(false)}
-							className='hover:text-teal-600 transition-colors '>
+							className={`hover:text-teal-600 transition-colors ${
+								pathname === '/contact' ? 'text-teal-600 font-semibold' : ''
+							}`}>
 							Contact Us
 						</Link>
 						<Link
