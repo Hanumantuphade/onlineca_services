@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    optimizeCss: false, // ensures PostCSS usage
-  },
+  /* config options here */
 };
 
 export default nextConfig;
