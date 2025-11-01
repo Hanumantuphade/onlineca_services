@@ -2,10 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    // Disable LightningCSS to fix Vercel build issue
-    optimizeCss: false,
+    optimizeCss: false, // ensures PostCSS usage
   },
 };
 
 export default nextConfig;
-
